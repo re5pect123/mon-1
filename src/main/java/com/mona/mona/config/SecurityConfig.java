@@ -15,8 +15,19 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+<<<<<<< HEAD
     @Autowired
     private DataSource dataSource;
+=======
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable().httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("/login").hasRole("DIZAJNER");
+    }
+>>>>>>> 8df099a9ca5340dc17f433fe05c663b8532c474c
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
