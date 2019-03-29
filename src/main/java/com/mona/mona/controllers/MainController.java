@@ -8,17 +8,11 @@ import java.security.Principal;
 @RestController
 public class MainController {
 
-    @GetMapping("/test")
-    public String test(){
-
-        System.out.println("POZDRAv od servera");
-
-        return "dizajner";
-    }
-
     @GetMapping("/login")
     public String korisnik(Principal principal){
-        System.out.println(principal.getName());
-        return "radi";
+
+        System.out.println("korisnik " + principal.getName());
+
+        return "RADI";
     }
 }
