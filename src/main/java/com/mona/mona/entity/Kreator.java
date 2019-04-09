@@ -1,7 +1,6 @@
 package com.mona.mona.entity;
 
 import org.hibernate.annotations.ColumnDefault;
-
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +16,7 @@ public class Kreator {
     String kolekcija;
     String sifra;
     String slika;
+
     @ColumnDefault("0")
     int aktiviran;
 

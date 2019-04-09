@@ -1,15 +1,12 @@
 package com.mona.mona.controllers;
 
-
 import com.mona.mona.entity.Kreator;
 import com.mona.mona.repository.KreatorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -52,7 +49,6 @@ public class UploadController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOAD_IMG + System.currentTimeMillis() + file.getOriginalFilename());
             Files.write(path, bytes);
-
             return "success";
         } catch (IOException e) {
             e.printStackTrace();
