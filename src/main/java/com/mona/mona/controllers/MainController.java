@@ -16,13 +16,10 @@ public class MainController {
 
     @GetMapping("/login")
     public String korisnik(Principal principal){
-
-        System.out.println("korisnik " + principal.getName());
-
+        System.out.println("Korisnik " + principal.getName());
         Authorities a = authoritiesRepository.findByUsername(principal.getName());
         System.out.println(a.getUsername());
         System.out.println(a.getAuthority());
-
         return a.getAuthority();
     }
 }

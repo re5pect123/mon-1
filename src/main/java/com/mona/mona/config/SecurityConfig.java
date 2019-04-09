@@ -32,7 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().authenticationEntryPoint(authenticationEntryPoint).and().cors().disable().csrf().disable().authorizeRequests()
-                .antMatchers("/login").hasAnyRole("DIZAJNER", "KROJAC");
+                .antMatchers("/login").hasAnyRole("DIZAJNER", "KREATOR")
+                .antMatchers("/upload").hasRole("KREATOR");
     }
 }
 
