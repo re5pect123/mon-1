@@ -24,10 +24,10 @@ public class UploadController {
     @PostMapping("/upload")
     public String uploadFile(
             @RequestParam("file")MultipartFile file,
-            @RequestParam("artikl") String artikl,
-            @RequestParam("materijal") String materijal,
-            @RequestParam("kolekcija") String kolekcija,
-            @RequestParam("sifra") String sifra,
+            @RequestParam(value = "artikl", required = false) String artikl,
+            @RequestParam(value = "materijal", required = false) String materijal,
+            @RequestParam(value = "kolekcija", required = false) String kolekcija,
+            @RequestParam(value = "sifra", required = false) String sifra,
             Principal principal){
         System.out.println("STIGAO ZAHTEV");
 
