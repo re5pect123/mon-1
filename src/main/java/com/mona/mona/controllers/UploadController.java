@@ -40,7 +40,7 @@ public class UploadController {
         kreator.setKolekcija(kolekcija);
         kreator.setSifra(sifra);
         kreator.setUsername(principal.getName());
-        kreator.setSlika(new File("").getCanonicalPath() + "/" + file.getOriginalFilename());
+        kreator.setSlika(new File("").getCanonicalPath() + "/src/main/resources/" + file.getOriginalFilename());
         kreator.setDatum(datum);
 
         System.out.println(kreator);
