@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,7 +31,7 @@ public class UploadController {
             @RequestParam(value = "kolekcija", required = false) String kolekcija,
             @RequestParam(value = "sifra", required = false) String sifra,
             @RequestParam(value = "datum", required = false) String datum,
-            Principal principal){
+            Principal principal) throws IOException {
         System.out.println("STIGAO ZAHTEV");
 
         Kreator kreator = new Kreator();
@@ -38,7 +40,7 @@ public class UploadController {
         kreator.setKolekcija(kolekcija);
         kreator.setSifra(sifra);
         kreator.setUsername(principal.getName());
-        kreator.setSlika(file.getOriginalFilename());
+        kreator.setSlika(new File("").getCanonicalPath() + "/" + file.getOriginalFilename());
         kreator.setDatum(datum);
 
         System.out.println(kreator);
