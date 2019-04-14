@@ -19,7 +19,7 @@ public class UploadController {
     @Autowired
     KreatorRepository kreatorRepository;
 
-    String UPLOAD_IMG = "C:\\out\\";
+    String UPLOAD_IMG = "src/main/resources/";
 
     @PostMapping("/upload")
     public String uploadFile(
@@ -50,7 +50,7 @@ public class UploadController {
         }
         try{
             byte[] bytes = file.getBytes();
-            Path path = Paths.get(UPLOAD_IMG + System.currentTimeMillis() + file.getOriginalFilename());
+            Path path = Paths.get(UPLOAD_IMG + file.getOriginalFilename());
             Files.write(path, bytes);
             return "success";
         } catch (IOException e) {
