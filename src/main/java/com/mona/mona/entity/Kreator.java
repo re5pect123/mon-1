@@ -16,6 +16,7 @@ public class Kreator {
     String kolekcija;
     String sifra;
     String slika;
+    String datum;
 
     @ColumnDefault("0")
     int aktiviran;
@@ -84,6 +85,14 @@ public class Kreator {
         this.aktiviran = aktiviran;
     }
 
+    public String getDatum() {
+        return datum;
+    }
+
+    public void setDatum(String datum) {
+        this.datum = datum;
+    }
+
     @Override
     public String toString() {
         return "Kreator{" +
@@ -94,6 +103,7 @@ public class Kreator {
                 ", kolekcija='" + kolekcija + '\'' +
                 ", sifra='" + sifra + '\'' +
                 ", slika='" + slika + '\'' +
+                ", datum='" + datum + '\'' +
                 ", aktiviran=" + aktiviran +
                 '}';
     }

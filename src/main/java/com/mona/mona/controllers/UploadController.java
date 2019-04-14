@@ -28,6 +28,7 @@ public class UploadController {
             @RequestParam(value = "materijal", required = false) String materijal,
             @RequestParam(value = "kolekcija", required = false) String kolekcija,
             @RequestParam(value = "sifra", required = false) String sifra,
+            @RequestParam(value = "datum", required = false) String datum,
             Principal principal){
         System.out.println("STIGAO ZAHTEV");
 
@@ -38,9 +39,11 @@ public class UploadController {
         kreator.setSifra(sifra);
         kreator.setUsername(principal.getName());
         kreator.setSlika(file.getOriginalFilename());
+        kreator.setDatum(datum);
 
         System.out.println(kreator);
         kreatorRepository.save(kreator);
+        System.out.println("USPESNO SACUVAN U BAZI NOVI KORISNIK");
 
         if (file.isEmpty()){
             return "missing_file";
