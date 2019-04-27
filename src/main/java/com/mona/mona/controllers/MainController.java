@@ -25,6 +25,8 @@ public class MainController {
 
     @GetMapping("/login")
     public String korisnik(Principal principal){
+        System.out.println("/login");
+        
         System.out.println("Korisnik " + principal.getName());
         Authorities a = authoritiesRepository.findByUsername(principal.getName());
         System.out.println(a.getUsername());
@@ -34,6 +36,7 @@ public class MainController {
 
     @GetMapping("/kreator-podaci")
     public Kreator podaci(@RequestParam String username){
+        System.out.println("/kreator-podaci");
         Kreator k = kreatorRepository.findFirstByUsername(username);
         return k;
     }
