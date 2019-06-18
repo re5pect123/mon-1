@@ -22,21 +22,25 @@ public class TestController {
 
     @GetMapping("/test1")
     public String test(){
+        System.out.println("Pogodjen test - aplikacija podignuta i radi \n");
         return "USPESAN TEST";
     }
 
     @GetMapping("/kreiranje-korisnika")
     public String kreiranjeKorisnika(){
+        System.out.println("Received request: /kreiranje korisnika");
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         Users dizajner = new Users();
         dizajner.setUsername("dizajner");
         dizajner.setPassword(bCryptPasswordEncoder.encode("123"));
         dizajner.setEnabled(true);
         usersRepository.save(dizajner);
+        System.out.println("Kreiran korisnik: " + dizajner.toString());
         Authorities rolaDizajner = new Authorities();
         rolaDizajner.setUsername("dizajner");
         rolaDizajner.setAuthority("ROLE_DIZAJNER");
         authoritiesRepository.save(rolaDizajner);
+        System.out.println("Kreirana rola: ROLE_DIZAJNER za: " + dizajner.getUsername() + "\n");
 
         return "Uspesno kreirano!";
     }

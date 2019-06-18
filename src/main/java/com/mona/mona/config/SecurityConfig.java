@@ -27,7 +27,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 
-    @Autowired private MyBasicAuthenticationEntryPoint authenticationEntryPoint;
+    @Autowired
+    private MyBasicAuthenticationEntryPoint authenticationEntryPoint;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

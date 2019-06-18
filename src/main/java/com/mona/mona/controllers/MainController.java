@@ -28,20 +28,18 @@ public class MainController {
     @CrossOrigin
     @GetMapping("/login")
     public String korisnik(Principal principal){
-        System.out.println("/login");
-        
-        System.out.println("Korisnik " + principal.getName());
+        System.out.println("Received request: /login");
         Authorities a = authoritiesRepository.findByUsername(principal.getName());
-        System.out.println(a.getUsername());
-        System.out.println(a.getAuthority());
+        System.out.println("Uspesno ulogovan = " + principal.getName() + " ROLA = " + a.getAuthority() + "\n");
         return a.getAuthority();
     }
 
     @CrossOrigin
     @GetMapping("/kreator-podaci")
     public Kreator podaci(@RequestParam String username){
-        System.out.println("/kreator-podaci");
+        System.out.println("Received request: /kreator-podaci");
         Kreator k = kreatorRepository.findFirstByUsername(username);
+        System.out.println("Podaci kreatora: " + k.toString());
         return k;
     }
 

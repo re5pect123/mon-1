@@ -17,7 +17,7 @@ public class MyBasicAuthenticationEntryPoint extends BasicAuthenticationEntryPoi
             throws IOException {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         PrintWriter writer = response.getWriter();
-        writer.println("HTTP Status 401 - " + authEx.getMessage());
+        writer.println("Request sadrzi username i password: Proverite - " + authEx.getMessage());
     }
 
     @Override
