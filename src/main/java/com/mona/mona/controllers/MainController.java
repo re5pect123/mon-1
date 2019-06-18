@@ -4,7 +4,9 @@ import com.mona.mona.entity.Authorities;
 import com.mona.mona.entity.Kreator;
 import com.mona.mona.repository.AuthoritiesRepository;
 import com.mona.mona.repository.KreatorRepository;
+import com.mona.mona.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +25,7 @@ public class MainController {
     @Autowired
     KreatorRepository kreatorRepository;
 
+    @CrossOrigin
     @GetMapping("/login")
     public String korisnik(Principal principal){
         System.out.println("/login");
@@ -34,6 +37,7 @@ public class MainController {
         return a.getAuthority();
     }
 
+    @CrossOrigin
     @GetMapping("/kreator-podaci")
     public Kreator podaci(@RequestParam String username){
         System.out.println("/kreator-podaci");

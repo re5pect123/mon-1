@@ -31,7 +31,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().authenticationEntryPoint(authenticationEntryPoint).and().cors().disable().csrf().disable().authorizeRequests()
+        http.httpBasic().authenticationEntryPoint(authenticationEntryPoint).and().cors().and().csrf().disable().authorizeRequests()
+                .antMatchers("/test1").permitAll()
+                .antMatchers("/kreiranje-korisnika").permitAll()
                 .antMatchers("/login").hasAnyRole("DIZAJNER", "KREATOR")
                 .antMatchers("/upload").hasRole("KREATOR")
                 .antMatchers("/logout").permitAll().and().logout();
